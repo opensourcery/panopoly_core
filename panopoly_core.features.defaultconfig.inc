@@ -26,13 +26,6 @@ function panopoly_core_defaultconfig_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'apps_allow_voting';
-  $strongarm->value = 0;
-  $export['apps_allow_voting'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'date_first_day';
   $strongarm->value = '0';
   $export['date_first_day'] = $strongarm;
@@ -331,8 +324,6 @@ function panopoly_core_defaultconfig_strongarm() {
     'entity_field_extra-taxonomy_term:description' => 0,
     'entity_field_extra-user:summary' => 'entity_field_extra-user:summary',
     'custom-custom' => 0,
-    'block-apps-manage_apps__panopoly' => 0,
-    'block-apps-manage_apps__panopoly_apps' => 0,
     'block-facetapi-1Cpx6naJU4Y3YvKVc0vcLK7Yo0ahaN0l' => 0,
     'block-facetapi-fA1pg0Ubd1zgx1mvzHkFUGaNoMb4Gs0s' => 0,
     'block-menu-devel' => 0,
