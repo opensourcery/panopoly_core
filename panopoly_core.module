@@ -3,36 +3,7 @@
 include_once('panopoly_core.features.inc');
 
 /**
- * Implementation of hook_init()
- */
-function panopoly_core_init() {
-
-  // Set the current page title in the breadcrumb
-  if (variable_get('panopoly_core_breadcrumb_title', TRUE)) {
-    $breadcrumb = drupal_get_breadcrumb();
-    if (count($breadcrumb) && drupal_get_title()) {
-      $breadcrumb[] = drupal_get_title();
-
-      // If it is the homepage, remove the breadcrumb
-      if (drupal_is_front_page()) {
-        $breadcrumb = array();
-      }
-      drupal_set_breadcrumb($breadcrumb);
-    }
-  }
-}
-
-/**
- * Implements hook_apps_app_info()
- */
-function panopoly_core_apps_app_info() {
-  return array(
-    'configure form' => 'panopoly_core_configure_form',
-  );
-}
-
-/**
- * Implemenets hook_page_build().
+ * Implements hook_page_build().
  */
 function panopoly_core_page_build(&$page) {
   // This fixes a bug that causes @font-face declarations to break in IE6-8.
@@ -45,46 +16,15 @@ function panopoly_core_page_build(&$page) {
 }
 
 /**
- * Configuration Form for Panopoly Core
- */
-function panopoly_core_configure_form($form, &$form_state) {
-  $form = array();
-
-  $form['panopoly_core_breadcrumb_title'] = array(
-    '#title' => t('Append Page Title to Site Breadcrumb'),
-    '#type' => 'select',
-    '#required' => TRUE,
-    '#options' => array(
-      '1' => 'Enabled',
-      '0' => 'Disabled',
-    ),
-    '#default_value' => variable_get('panopoly_core_breadcrumb_title', 1),
-    '#description' => t('Do you want Panopoly to append the page title to the site breadcrumb?'),
-  );
-
-  return system_settings_form($form);
-}
-
-/**
- * Implementation of hook_preprocess_html()
+ * Implements hook_preprocess_html().
  *
- * We are telling the site that everything is a region-content. This is important since
- * when we disable the block module it loses this classes which some things assume for generalized
- * CSS considerations (i.e. Bartik's spacing of ul/ol).
+ * We are telling the site that everything is a region-content. This is
+ * important since when we disable the block module it loses this classes which
+ * some things assume for generalized CSS considerations (i.e. Bartik's spacing
+ * of ul/ol).
  */
 function panopoly_core_preprocess_html(&$variables) {
   $variables['classes_array'][] = 'region-content';
-}
-
-/**
- * Implements hook_module_implements_alter().
- */
-function panopoly_core_module_implements_alter(&$implementations, $hook) {
-  if ($hook == 'css_alter' || $hook == 'modules_enabled') {
-    $group = $implementations['panopoly_core'];
-    unset($implementations['panopoly_core']);
-    $implementations['panopoly_core'] = $group;
-  }
 }
 
 /**
@@ -122,7 +62,7 @@ function panopoly_core_pre_render_styles($elements) {
 }
 
 /**
- * Implements hook_date_format_types()
+ * Implements hook_date_format_types().
  */
 function panopoly_core_date_format_types() {
   return array(
@@ -153,7 +93,7 @@ function panopoly_core_date_formats() {
 }
 
 /**
- * Helpfer function to get view modes
+ * Helper function to get node view modes.
  */
 function panopoly_core_view_mode_options() {
   $entity_info = entity_get_info('node');
