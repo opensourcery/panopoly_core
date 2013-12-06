@@ -416,7 +416,7 @@ function panopoly_core_defaultconfig_user_default_permissions() {
     'name' => 'administer panels styles',
     'roles' => array(
       'administrator' => 'administrator',
-      'editor' => 'editor',
+      'site editor' => 'site editor',
     ),
     'module' => 'panels',
   );
@@ -426,7 +426,7 @@ function panopoly_core_defaultconfig_user_default_permissions() {
     'name' => 'change layouts in place editing',
     'roles' => array(
       'administrator' => 'administrator',
-      'editor' => 'editor',
+      'site editor' => 'site editor',
     ),
     'module' => 'panels',
   );
@@ -436,7 +436,7 @@ function panopoly_core_defaultconfig_user_default_permissions() {
     'name' => 'use page manager',
     'roles' => array(
       'administrator' => 'administrator',
-      'editor' => 'editor',
+      'site editor' => 'site editor',
     ),
     'module' => 'page_manager',
   );
@@ -446,7 +446,7 @@ function panopoly_core_defaultconfig_user_default_permissions() {
     'name' => 'use panels in place editing',
     'roles' => array(
       'administrator' => 'administrator',
-      'editor' => 'editor',
+      'site editor' => 'site editor',
     ),
     'module' => 'panels',
   );
@@ -466,9 +466,9 @@ function panopoly_core_defaultconfig_user_default_roles() {
     'weight' => '2',
   );
 
-  // Exported role: editor.
-  $roles['editor'] = array(
-    'name' => 'editor',
+  // Exported role: site editor.
+  $roles['site editor'] = array(
+    'name' => 'site editor',
     'weight' => '3',
   );
 
